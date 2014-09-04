@@ -24,4 +24,26 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
     render('lessons/show.html.erb')
   end
+
+  def edit
+    @lessons = Lesson.all
+    @lesson = Lesson.find(params[:id])
+    render('lessons/edit.html.erb')
+  end
+
+  def update
+    @lesson = Lesson.find(params[:id])
+    if @lesson.update(:name => params[:name],
+                      :content => params[:content])
+      render('lessons/show.html.erb')
+    else
+      render('lessons/edit.html.erb')
+    end
+  end
+
+  def destroy
+    @lesson = Lesson.find(params[:id])
+    @lesson.destroy
+    render('lessons/destroy.html.erb')
+  end
 end
