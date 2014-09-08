@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.all.order(:lesson_num)
     render('lessons/index.html.erb')
   end
 
