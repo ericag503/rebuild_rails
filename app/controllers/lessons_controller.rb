@@ -21,6 +21,7 @@ class LessonsController < ApplicationController
   end
 
   def show
+    @lessons = Lesson.all
     @lesson = Lesson.find(params[:id])
     render('lessons/show.html.erb')
   end

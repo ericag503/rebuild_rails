@@ -8,3 +8,9 @@
       data-method="delete"
       rel="nofollow">Delete</a></p>
 <p><a href="/lessons">Return to lesson listing</a></p>
+<% if @lesson.next != nil %>
+  <p><a href="/lessons/<%= @lesson.next.id %>">Next lesson</a></p>
+<% end %>
+<% if @lesson.prev != nil %>
+  <p><a href="/lessons/<%= @lesson.prev.id %>">Previous lesson</a></p>
+<% end %>
