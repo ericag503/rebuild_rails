@@ -9,5 +9,9 @@ class Lesson < ActiveRecord::Base
   def next
     next_lesson = Lesson.where("lesson_num > ?", self.lesson_num).first
   end
+
+  def prev
+    prev_lesson = Lesson.where("lesson_num < ?", self.lesson_num).last
+  end
 end
 

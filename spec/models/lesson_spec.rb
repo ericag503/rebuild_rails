@@ -12,4 +12,12 @@ describe Lesson do
       expect(current_lesson.next).to eq next_lesson
     end
   end
+
+   context '#prev' do
+    it 'returns the lesson with the next-lowest number than the current lesson' do
+      current_lesson = Lesson.create({:name => 'lesson2', :lesson_num => 2, :content => "hello"})
+      prev_lesson = Lesson.create({:name => 'lesson1', :lesson_num => 1, :content => "hello"})
+      expect(current_lesson.prev).to eq prev_lesson
+    end
+  end
 end
